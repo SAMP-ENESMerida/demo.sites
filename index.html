@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="floating-actions" aria-label="Controles de visualización">
+    <button id="theme-toggle" class="floating-button" type="button" aria-label="Cambiar modo claro u oscuro" title="Cambiar modo claro u oscuro">◐</button>
+    <button id="language-toggle" class="floating-button language-button" type="button" aria-label="Cambiar idioma" title="Cambiar idioma">ES</button>
+  </div>
+
   <header class="site-header">
     <div class="brand">
       <img src="assets/enes-logo-placeholder.svg" alt="ENES Mérida UNAM" />
@@ -19,54 +24,38 @@
     <section class="hero">
       <div class="hero-content">
         <p class="kicker">SAMP demo</p>
-        <h1>Detección automática de peces en imágenes y video</h1>
-        <p>
-          Portal temporal para acceder a una aplicación experimental de visión por computadora basada en RF-DETR.
-          La inferencia corre en una workstation local; esta página solo funciona como punto de acceso.
-        </p>
-
+        <h1 data-es="Detección automática de peces en imágenes y video" data-en="Automatic fish detection in images and video">Detección automática de peces en imágenes y video</h1>
+        <p data-es="Portal temporal para acceder a una aplicación experimental de visión por computadora basada en RF-DETR. La inferencia corre en una workstation local; esta página solo funciona como punto de acceso." data-en="Temporary portal to access an experimental computer-vision application based on RF-DETR. Inference runs on a local workstation; this page only works as an access point.">Portal temporal para acceder a una aplicación experimental de visión por computadora basada en RF-DETR. La inferencia corre en una workstation local; esta página solo funciona como punto de acceso.</p>
         <div class="actions">
-          <a id="demo-link" class="primary-button" href="#" target="_blank" rel="noopener noreferrer">Abrir demo</a>
-          <button id="copy-link" class="secondary-button" type="button">Copiar enlace</button>
+          <a id="demo-link" class="primary-button" href="#" target="_blank" rel="noopener noreferrer" data-es="Abrir demo" data-en="Open demo">Abrir demo</a>
+          <button id="copy-link" class="secondary-button" type="button" data-es="Copiar enlace" data-en="Copy link">Copiar enlace</button>
         </div>
-
         <p id="demo-status" class="status-pill">Cargando estado de la demo…</p>
       </div>
-
       <aside class="access-card">
-        <h2>Acceso controlado</h2>
-        <p>La app Gradio requiere usuario y contraseña. Las credenciales se comparten por un canal privado.</p>
+        <h2 data-es="Acceso controlado" data-en="Controlled access">Acceso controlado</h2>
+        <p data-es="La app Gradio requiere usuario y contraseña. Las credenciales se comparten por un canal privado." data-en="The Gradio app requires a username and password. Credentials are shared through a private channel.">La app Gradio requiere usuario y contraseña. Las credenciales se comparten por un canal privado.</p>
         <ul>
-          <li>Disponible solo mientras la workstation esté encendida.</li>
-          <li>Los archivos se procesan localmente en la máquina anfitriona.</li>
-          <li>Los resultados se eliminan al terminar la sesión de demo.</li>
+          <li data-es="Disponible solo mientras la workstation esté encendida." data-en="Available only while the workstation is running.">Disponible solo mientras la workstation esté encendida.</li>
+          <li data-es="Los archivos se procesan localmente en la máquina anfitriona." data-en="Files are processed locally on the host machine.">Los archivos se procesan localmente en la máquina anfitriona.</li>
+          <li data-es="Los resultados se eliminan al terminar la sesión de demo." data-en="Results are deleted after the demo session ends.">Los resultados se eliminan al terminar la sesión de demo.</li>
         </ul>
       </aside>
     </section>
 
     <section class="info-grid">
-      <article class="info-card">
-        <h2>Flujo de imágenes</h2>
-        <p>Sube imágenes JPG/PNG, ajusta el umbral de confianza y revisa galerías, tablas y resumen por clase.</p>
-      </article>
-      <article class="info-card">
-        <h2>Flujo de video</h2>
-        <p>Sube un video, define el muestreo de frames y ejecuta inferencia con seguimiento IoU.</p>
-      </article>
-      <article class="info-card">
-        <h2>Uso esperado</h2>
-        <p>Demo controlada para exploración visual y discusión técnica. No es todavía un servicio público de producción.</p>
-      </article>
+      <article class="info-card"><h2 data-es="Flujo de imágenes" data-en="Image workflow">Flujo de imágenes</h2><p data-es="Sube imágenes JPG/PNG, ajusta el umbral de confianza y revisa galerías, tablas y resumen por clase." data-en="Upload JPG/PNG images, adjust the confidence threshold, and review galleries, tables, and class summaries.">Sube imágenes JPG/PNG, ajusta el umbral de confianza y revisa galerías, tablas y resumen por clase.</p></article>
+      <article class="info-card"><h2 data-es="Flujo de video" data-en="Video workflow">Flujo de video</h2><p data-es="Sube un video, define el muestreo de frames y ejecuta inferencia con seguimiento IoU." data-en="Upload a video, define frame sampling, and run inference with IoU-based tracking.">Sube un video, define el muestreo de frames y ejecuta inferencia con seguimiento IoU.</p></article>
+      <article class="info-card"><h2 data-es="Uso esperado" data-en="Intended use">Uso esperado</h2><p data-es="Demo controlada para exploración visual y discusión técnica. No es todavía un servicio público de producción." data-en="Controlled demo for visual exploration and technical discussion. This is not yet a public production service.">Demo controlada para exploración visual y discusión técnica. No es todavía un servicio público de producción.</p></article>
     </section>
 
     <section class="technical-note">
-      <h2>Nota técnica</h2>
-      <p>GitHub Pages aloja únicamente esta página estática. La aplicación interactiva de Gradio corre en la workstation mediante un enlace temporal.</p>
-      <p class="small">Última actualización del enlace: <span id="updated-at">pendiente</span></p>
+      <h2 data-es="Nota técnica" data-en="Technical note">Nota técnica</h2>
+      <p data-es="GitHub Pages aloja únicamente esta página estática. La aplicación interactiva de Gradio corre en la workstation mediante un enlace temporal." data-en="GitHub Pages hosts only this static page. The interactive Gradio application runs on the workstation through a temporary link.">GitHub Pages aloja únicamente esta página estática. La aplicación interactiva de Gradio corre en la workstation mediante un enlace temporal.</p>
+      <p class="small"><span data-es="Última actualización del enlace:" data-en="Last link update:">Última actualización del enlace:</span> <span id="updated-at">pendiente</span></p>
     </section>
   </main>
-
-  <footer class="site-footer">SAMP demo · ENES Mérida / UNAM</footer>
+  <footer class="site-footer"><span data-es="SAMP demo · ENES Mérida / UNAM" data-en="SAMP demo · ENES Mérida / UNAM">SAMP demo · ENES Mérida / UNAM</span></footer>
   <script src="app.js"></script>
 </body>
 </html>
