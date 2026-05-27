@@ -6,15 +6,10 @@ This repository does **not** run the Gradio app. It only provides a public entry
 
 ## Quick start
 
-1. Create a new public repository, for example `SAMP_demo_site`.
-2. Copy these files to the repository root.
-3. Commit and push to `main`.
-4. In GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**.
-5. Select `main` and `/(root)`, then save.
-6. The site should become available at:
+1. The site should become available at:
 
 ```text
-https://arturoSP.github.io/SAMP_demo_site/
+https://samp-enesmerida.github.io/demo.sites/
 ```
 
 ## Updating the current Gradio link
