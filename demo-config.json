@@ -1,5 +1,5 @@
 {
-  "demo_url": "https://3da9a4ff21e6250e7e.gradio.live/",
+  "demo_url": " https://7ff2de4ba9ecb645eb.gradio.live/",
   "status": "online",
   "updated_at": "2026-05-27 10:23",
   "notes": "Update demo_url whenever Gradio share=True generates a new public URL."
