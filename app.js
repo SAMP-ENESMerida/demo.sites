@@ -129,43 +129,34 @@ function setupFloatingButtons() {
 }
 
 async function loadDemoConfig() {
-  const statusEl = document.getElementById("demo-status");
-  const linkEl = document.getElementById("demo-link");
-  updatedEl.textContent = config.updated_at || I18N[getCurrentLanguage()].updatedFallback;
-  if (config.updated_at) updatedEl.dataset.hasValue = "true";
   const copyEl = document.getElementById("copy-link");
 
   try {
-    const response = await fetch("demo-config.json", { cache: "no-store" });
-    if (!response.ok) throw new Error(`Could not load demo-config.json: ${response.status}`);
+    const config = window.SAMP_DEMO_CONFIG;
 
-    const config = await response.json();
-    const demoUrl = config.demo_url || "#";
-    const status = config.status || "offline";
-
-    linkEl.href = demoUrl;
-    updatedEl.textContent = config.updated_at || "sin registro";
-
-    if (status === "online" && demoUrl !== "#") {
-      statusEl.dataset.state = "online";
-      statusEl.textContent = I18N[getCurrentLanguage()].statusOnline;
-      statusEl.style.background = "rgba(0, 245, 212, 0.18)";
-    } else {
-      statusEl.dataset.state = "offline";
-      statusEl.textContent = I18N[getCurrentLanguage()].statusOffline;
-      statusEl.style.background = "rgba(255, 255, 255, 0.13)";
+    if (!config) {
+      throw new Error("window.SAMP_DEMO_CONFIG is not defined.");
     }
 
-    copyEl.addEventListener("click", async () => {
-      if (demoUrl === "#") return;
-      await navigator.clipboard.writeText(demoUrl);
-      copyEl.textContent = I18N[getCurrentLanguage()].copyDone;
-      setTimeout(() => applyLanguage(getCurrentLanguage()), 1600);
-    });
+    window.__demoConfig = config;
+    updateStatusText(config);
+
+    if (copyEl) {
+      copyEl.addEventListener("click", async () => {
+        const demoUrl = config.demo_url || "#";
+        if (demoUrl === "#") return;
+
+        await navigator.clipboard.writeText(demoUrl);
+        copyEl.textContent = i18n.text("Enlace copiado", "Link copied");
+
+        setTimeout(() => {
+          copyEl.textContent = i18n.text("Copiar enlace", "Copy link");
+        }, 1600);
+      });
+    }
   } catch (error) {
-    statusEl.dataset.state = "error";
-    statusEl.textContent = I18N[getCurrentLanguage()].statusConfigError;
-    linkEl.href = "#";
+    window.__demoConfig = null;
+    updateStatusText(null);
     console.error(error);
   }
 }
